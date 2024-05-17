@@ -1,0 +1,45 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "version": 2,
+    "final_space": true,
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "path",
+                    "style": "diamond",
+                    "foreground": "#ffffff",
+                    "background": "#c44569",
+                    "trailing_diamond": "",
+                    "properties": {
+                        "style": "agnoster_short",
+                        "max_depth": 2,
+                        "folder_icon": " \ue5fe "
+                    }
+                },
+                {
+                    "type": "executiontime",
+                    "style": "diamond",
+                    "foreground": "#ffffff",
+                    "background": "#f78fb3",
+                    "trailing_diamond": "",
+                    "properties": {
+                        "always_enabled": true,
+                        "style": "round"
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "diamond",
+                    "background": "#FCA17D",
+                    "foreground": "#ffffff",
+                    "trailing_diamond": "",
+                    "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} "
+                }
+            ],
+            "newline": true
+    }
+  ]
+}
