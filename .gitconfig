@@ -1,0 +1,33 @@
+[user]
+    name = sarathorhalls
+    email = 
+[core]
+    editor = code --wait
+[alias]
+    aa = add -A
+    br = branch --list
+    cp = cherry-pick
+    ci = commit
+    co = commit -m
+    coa = commit -a --amend --no-edit
+    amend = commit -a --amend --no-edit
+    ck = checkout
+    ckb = checkout -b
+    pl = pull
+    st = status
+    sts = status -s
+    shit = reset --hard origin
+    undo = "!git reset --soft HEAD~$1 #"
+    sq = "!git rebase -i HEAD~$1 #"
+    sw = switch
+    please = push --force-with-lease
+    puf = push --force-with-lease
+    publish = push -u origin HEAD
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    log1 = log --oneline --decorate
+[rebase]
+    autosquash = true
+[pull]
+    rebase = true
+[push]
+    autoSetupRemote = true
