@@ -22,9 +22,6 @@ typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
-if [[ -z "$PRIMARY_FG" ]]; then
-	PRIMARY_FG=black
-fi
 
 # Characters
 SEGMENT_SEPARATOR="\ue0b0"
@@ -81,14 +78,14 @@ prompt_git() {
       ref="$DETACHED ${ref/.../}"
     fi
     color="{#FCA17D}"
-    prompt_segment $color $PRIMARY_FG
+    prompt_segment $color black
     print -n " $ref"
   fi
 }
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment {#C44569} $PRIMARY_FG ' %~ '
+  prompt_segment {#C44569} white ' %~ '
 }
 
 # Exec_time: the execution time of the last command
@@ -98,9 +95,9 @@ prompt_exec_time() {
     if [[ $timer_show > 59 ]]; then
       timer_minutes=$(( $timer_show / 60 ))
       timer_show=$(( $timer_show % 60 ))
-      prompt_segment {#F78FB3} $PRIMARY_FG " ${timer_minutes}m${timer_show}s "
+      prompt_segment {#F78FB3} black " ${timer_minutes}m${timer_show}s "
     else
-    prompt_segment {#F78FB3} $PRIMARY_FG " ${timer_show}s "
+    prompt_segment {#F78FB3} black " ${timer_show}s "
     fi
   fi
 }
