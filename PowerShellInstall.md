@@ -1,30 +1,31 @@
 ## Package Manager
 
-Using scoop for my powershell package manager
+Using [scoop](https://scoop.sh/) for my powershell package manager
 
-``` ps
+``` powershell
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 irm get.scoop.sh | iex
 ```
 
 ## Fonts
 
-I'm a Cousine kinda girl
+I'm a [Cousine](https://github.com/matthewjberger/scoop-nerd-fonts/blob/master/bucket/Cousine-NF-Mono.json) kinda girl
 
-``` ps
+``` powershell
 scoop bucket add nerd-fonts
 scoop install Cousine-NF-Mono
 ```
 
-## Oh My Posh
+## [Oh My Posh](https://ohmyposh.dev/docs)
 
 ### Install
 
-``` ps
+``` powershell
 scoop bucket add main #usually unnecesary
 scoop install oh-my-posh
+#place saraPrompt1.json in ~\Documents\development\ConfigFiles
 code $profile
 New-Item -Path $PROFILE -Type File -Force #if the above command doesn't work
 #paste this line in
-oh-my-posh init pwsh --config "~\Documents\development\ConfigFiles\saraPrompt1.json" | Invoke-Expression #TODO: github link
+oh-my-posh init pwsh --config "~\Documents\development\ConfigFiles\saraPrompt1.json" | Invoke-Expression
 ```
