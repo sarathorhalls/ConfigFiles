@@ -12,6 +12,7 @@
 ### Segments of the prompt, default order declaration
 
 typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
+    prompt_status
     prompt_dir
     prompt_exec_time
     prompt_git
@@ -91,15 +92,23 @@ prompt_dir() {
 # Exec_time: the execution time of the last command
 prompt_exec_time() {
   local timer_minutes
-  if [[ -n $timer_show ]]; then
-    if [[ $timer_show > 59 ]]; then
+  if [[ -n $timer_show ]] && (( $timer_show > 2 )); then
+    if (( $timer_show > 59 )); then
       timer_minutes=$(( $timer_show / 60 ))
       timer_show=$(( $timer_show % 60 ))
       prompt_segment {#F78FB3} black " ${timer_minutes}m${timer_show}s "
     else
-    prompt_segment {#F78FB3} black " ${timer_show}s "
+      prompt_segment {#F78FB3} black " ${timer_show}s "
     fi
   fi
+}
+
+prompt_status() {
+  local -a symbols
+
+  [[ $RETVAL -ne 0 ]] && symbols+=" ✘ $RETVAL"
+
+  [[ -n "$symbols" ]] && prompt_segment {#e01a4f} black "$symbols"
 }
 
 ## Main prompt
@@ -143,3 +152,4 @@ prompt_agnoster_setup() {
 }
 
 prompt_agnoster_setup "$@"
+
