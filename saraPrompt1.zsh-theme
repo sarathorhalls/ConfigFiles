@@ -120,7 +120,8 @@ prompt_agnoster_main() {
   done
 }
 
-local timer timer_show
+timer=
+timer_show=
 
 # Start the timer, for exec_time
 promt_exec_time_preexec() {
