@@ -6,6 +6,7 @@
 [alias]
     aa = add -A
     br = branch --list
+    brd = branch -D
     cp = cherry-pick
     ci = commit
     co = commit -m
@@ -19,6 +20,7 @@
     shit = reset --hard origin
     undo = "!git reset --soft HEAD~$1 #"
     sq = "!git rebase -i HEAD~$1 #"
+    sha = "!f() { $commit = git log -n 1 | findstr -i commit; $commit.Substring(7) | Set-Clipboard; }; f"
     sw = switch
     please = push --force-with-lease
     puf = push --force-with-lease
