@@ -26,6 +26,5 @@ scoop install oh-my-posh
 #place saraPrompt1.json in ~\Documents\development\ConfigFiles
 code $profile
 New-Item -Path $PROFILE -Type File -Force #if the above command doesn't work
-#paste this line in
-oh-my-posh init pwsh --config "~\Documents\development\ConfigFiles\saraPrompt1.json" | Invoke-Expression
+Copy everything from Microsoft.PowerShell_profile.ps1
 ```
